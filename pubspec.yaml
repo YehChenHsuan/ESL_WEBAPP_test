@@ -1,0 +1,45 @@
+name: english_learning_app
+description: A children's English learning app with reading and recording features.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  csv: ^5.1.1
+  audioplayers: ^6.4.0
+  record: ^5.0.4
+  record_web: ^1.1.4
+  idb_shim: ^2.6.1+7
+  path_provider: ^2.1.2
+  flutter_sound: ^9.2.5
+  flutter_sound_web: ^9.2.5
+  flutter_sound_platform_interface: ^9.2.5
+  shared_preferences: ^2.5.3
+  file_picker: ^6.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/Books/
+    - assets/Books/V1/
+    - assets/Books/V2/
+    - assets/audio/
+    - assets/audio/en/
+    - assets/audio/en/V1/
+    - assets/audio/en/V2/
+    - assets/audio/zh/
+    - assets/audio/zh/V1/
+    - assets/audio/zh/V2/
+    - assets/Book_data/

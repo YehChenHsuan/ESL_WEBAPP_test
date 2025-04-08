@@ -1,0 +1,1 @@
+ build\\web\\manifest.json:  D:\\click_to_read_MGX\\web\\index.html D:\\click_to_read_MGX\\web\\manifest.json

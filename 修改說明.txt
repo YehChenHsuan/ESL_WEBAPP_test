@@ -1,0 +1,43 @@
+# 兒童美語跟讀模式翻譯修改說明
+
+## 修改摘要
+本次修改解決了中文翻譯功能的問題，改為從 D:\click_to_read\assets\Book_data 目錄下的 JSON 文件讀取翻譯數據，而不是依賴無法找到的 assets/translations/en_zh.json 檔案。
+
+## 詳細修改內容
+
+### 1. 翻譯服務修改 (translation_service.dart)
+- 完全重寫了 TranslationService 類別，移除了對特定翻譯文件的依賴
+- 新增方法 `_loadTranslationsFromBookData()` 從所有書籍 JSON 中提取翻譯數據
+- 新增方法 `_getBookDataPaths()` 獲取所有書籍數據文件的路徑
+- 新增方法 `loadTranslationsForBook()` 為特定書籍載入翻譯數據
+- 移除不必要的檔案讀寫操作，簡化代碼
+
+### 2. 讀者螢幕修改 (reader_screen.dart)
+- 更新 `_preloadTranslations()` 方法，先從當前書籍數據檔案加載翻譯
+- 優化區域點擊處理，檢查區域是否已有翻譯
+- 增加錯誤處理和日誌記錄
+- 添加防止內存洩漏的判斷 (mounted 檢查)
+
+### 3. 新增測試工具 (translation_test.dart)
+- 添加一個簡單的測試工具類別，可用於驗證翻譯功能
+- 測試關鍵英文單詞的翻譯結果
+- 提供對話框顯示測試結果
+
+## 如何使用
+現在翻譯功能會自動從教材 JSON 檔案中提取翻譯數據，格式為 "Text" 欄位對應 "中文翻譯" 欄位。不需要額外設定，只要確保所有教材的 JSON 檔案都放在 assets/Book_data 目錄下，且包含正確的翻譯字段。
+
+## 測試方法
+如需測試翻譯功能是否正常，可以使用 translation_test.dart 中的 TranslationTester 類別：
+
+```dart
+// 在任何帶有 BuildContext 的地方
+ElevatedButton(
+  onPressed: () => TranslationTester.testTranslation(context),
+  child: Text('測試翻譯'),
+)
+```
+
+## 額外建議
+- 確保所有 JSON 檔案的格式一致
+- 確保 "中文翻譯" 欄位的內容是正確的中文翻譯
+- 如有新詞彙需要添加翻譯，直接添加到對應教材的 JSON 檔案中即可

@@ -692,7 +692,7 @@ class _ImprovedReaderScreenState extends State<ImprovedReaderScreen>
                     IconButton(
                       icon: Icon(
                         _isRecording ? Icons.stop : Icons.mic,
-                        size: 80,
+                        size: iconSize,
                       ),
                       tooltip: _isRecording ? '停止錄音' : '開始錄音',
                       onPressed: (_isPlayingOriginalAudio ||

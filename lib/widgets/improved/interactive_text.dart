@@ -156,6 +156,9 @@ class _ImprovedInteractiveTextRegionState extends State<ImprovedInteractiveTextR
     showDialog(
       context: context,
       builder: (BuildContext context) {
+        final screenWidth = MediaQuery.of(context).size.width;
+        final double fontSize = screenWidth < 500 ? 28 : 56;
+
         return AlertDialog(
           titlePadding: const EdgeInsets.only(left: 20, top: 20, right: 20),
           title: Row(
@@ -166,13 +169,13 @@ class _ImprovedInteractiveTextRegionState extends State<ImprovedInteractiveTextR
                   '翻譯',
                   style: TextStyle(
                     color: Colors.blue[700],
-                    fontSize: 56,
+                    fontSize: fontSize,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
               IconButton(
-                icon: Icon(Icons.close, size: 56),
+                icon: Icon(Icons.close, size: fontSize),
                 onPressed: () => Navigator.of(context).pop(),
               ),
             ],
@@ -185,15 +188,15 @@ class _ImprovedInteractiveTextRegionState extends State<ImprovedInteractiveTextR
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.blue[600],
-                      fontSize: 56)),
-              Text(originalText, style: TextStyle(fontSize: 56)),
-              SizedBox(height: 30),
+                      fontSize: fontSize)),
+              Text(originalText, style: TextStyle(fontSize: fontSize)),
+              SizedBox(height: fontSize * 0.5),
               Text('中文翻譯:',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.green[600],
-                      fontSize: 56)),
-              Text(translatedText, style: TextStyle(fontSize: 56)),
+                      fontSize: fontSize)),
+              Text(translatedText, style: TextStyle(fontSize: fontSize)),
             ],
           ),
         );

@@ -1,17 +1,25 @@
-2025/04/07-22:56:42.978 c34 Reusing MANIFEST C:\Users\atax1\AppData\Local\Temp\flutter_tools.ab2ddc1c\flutter_tools_chrome_device.62299056\Default\Site Characteristics Database/MANIFEST-000001
-2025/04/07-22:56:42.979 c34 Recovering log #38
-2025/04/07-22:56:42.979 c34 Reusing old log C:\Users\atax1\AppData\Local\Temp\flutter_tools.ab2ddc1c\flutter_tools_chrome_device.62299056\Default\Site Characteristics Database/000038.log 
-2025/04/07-22:56:42.979 c34 Delete type=2 #3
-2025/04/07-22:56:42.979 c34 Delete type=0 #3
-2025/04/07-22:56:42.979 c34 Delete type=2 #7
-2025/04/07-22:56:42.979 c34 Delete type=2 #8
-2025/04/07-22:56:42.979 c34 Delete type=2 #12
-2025/04/07-22:56:42.979 c34 Delete type=2 #18
-2025/04/07-22:56:42.979 c34 Delete type=2 #20
-2025/04/07-22:56:42.989 c34 Delete type=2 #21
-2025/04/07-22:56:42.989 c34 Delete type=2 #22
-2025/04/07-22:56:42.995 c34 Delete type=0 #25
-2025/04/07-22:56:42.995 c34 Delete type=0 #29
-2025/04/07-22:56:42.995 c34 Delete type=2 #30
-2025/04/07-22:56:42.995 c34 Delete type=2 #32
-2025/04/07-22:56:42.995 c34 Delete type=2 #33
+2025/04/08-23:14:39.283 4e70 Reusing MANIFEST C:\Users\atax1\AppData\Local\Temp\flutter_tools.c4428e0e\flutter_tools_chrome_device.6e396351\Default\Site Characteristics Database/MANIFEST-000001
+2025/04/08-23:14:39.284 5a1c Compacting 20@0 + 0@1 files
+2025/04/08-23:14:39.286 5a1c Generated table #57@0: 2 keys, 194 bytes
+2025/04/08-23:14:39.286 5a1c Compacted 20@0 + 0@1 files => 194 bytes
+2025/04/08-23:14:39.287 5a1c compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/04/08-23:14:39.287 5a1c Delete type=2 #3
+2025/04/08-23:14:39.287 5a1c Delete type=2 #7
+2025/04/08-23:14:39.288 5a1c Delete type=2 #8
+2025/04/08-23:14:39.288 5a1c Delete type=2 #12
+2025/04/08-23:14:39.288 5a1c Delete type=2 #18
+2025/04/08-23:14:39.288 5a1c Delete type=2 #20
+2025/04/08-23:14:39.288 5a1c Delete type=2 #21
+2025/04/08-23:14:39.288 5a1c Delete type=2 #22
+2025/04/08-23:14:39.288 5a1c Delete type=2 #30
+2025/04/08-23:14:39.288 5a1c Delete type=2 #32
+2025/04/08-23:14:39.288 5a1c Delete type=2 #33
+2025/04/08-23:14:39.288 5a1c Delete type=2 #39
+2025/04/08-23:14:39.289 5a1c Delete type=2 #41
+2025/04/08-23:14:39.289 5a1c Delete type=2 #42
+2025/04/08-23:14:39.289 5a1c Delete type=2 #43
+2025/04/08-23:14:39.289 5a1c Delete type=2 #50
+2025/04/08-23:14:39.289 5a1c Delete type=2 #51
+2025/04/08-23:14:39.289 5a1c Delete type=2 #52
+2025/04/08-23:14:39.289 5a1c Delete type=2 #53
+2025/04/08-23:14:39.289 5a1c Delete type=2 #54

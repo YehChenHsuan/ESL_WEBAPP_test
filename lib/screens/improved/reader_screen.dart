@@ -599,6 +599,10 @@ class _ImprovedReaderScreenState extends State<ImprovedReaderScreen>
       barrierDismissible: false,
       builder: (context) => StatefulBuilder(
         builder: (context, setDialogState) {
+          final screenWidth = MediaQuery.of(context).size.width;
+          final double fontSize = screenWidth < 500 ? 30 : 60;
+          final double iconSize = screenWidth < 500 ? 40 : 80;
+
           return AlertDialog(
             titlePadding: const EdgeInsets.only(left: 20, top: 20, right: 20),
             title: Row(
@@ -607,11 +611,11 @@ class _ImprovedReaderScreenState extends State<ImprovedReaderScreen>
                 Expanded(
                   child: Text(
                     '跟讀',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: fontSize * 0.5, fontWeight: FontWeight.bold),
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.close),
+                  icon: Icon(Icons.close, size: fontSize * 0.5),
                   onPressed: () {
                     _audioService.stopAudio();
                     if (_isRecording) {
@@ -634,15 +638,15 @@ class _ImprovedReaderScreenState extends State<ImprovedReaderScreen>
               children: [
                 Text(
                   '${_activeRegion?.text ?? ""}',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 60),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: fontSize),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: fontSize * 0.5),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.headphones, size: 80),
+                      icon: Icon(Icons.headphones, size: iconSize),
                       tooltip: '播放錄音',
                       onPressed: (_lastRecordingPath != null &&
                               !_isPlayingOriginalAudio &&
@@ -662,9 +666,9 @@ class _ImprovedReaderScreenState extends State<ImprovedReaderScreen>
                           ? Colors.orange
                           : Colors.grey,
                     ),
-                    const SizedBox(width: 30),
+                    SizedBox(width: iconSize * 0.375),
                     IconButton(
-                      icon: const Icon(Icons.volume_up, size: 80),
+                      icon: Icon(Icons.volume_up, size: iconSize),
                       tooltip: '播放原音',
                       onPressed: _isPlayingOriginalAudio ||
                               _isRecording ||

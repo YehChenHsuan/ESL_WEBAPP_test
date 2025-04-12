@@ -43,6 +43,14 @@ class AudioServiceBridge {
     }
   }
 
+void setOnCompleteListener(Function? onComplete) {
+  try {
+    _service.setOnCompleteListener(onComplete);
+  } catch (e) {
+    print('設置完成回調失敗(已處理): \$e');
+  }
+}
+
   // 播放音頻文件
   Future<void> playAudio(String audioPath,
       {double rate = 1.0, bool isChinese = false}) async {
@@ -150,14 +158,6 @@ class AudioServiceBridge {
     }
   }
 
-  // 設置播放完成回調
-  void setOnCompleteListener(Function() onComplete) {
-    try {
-      _service.setOnCompleteListener(onComplete);
-    } catch (e) {
-      print('設置播放完成回調失敗(已處理): $e');
-    }
-  }
 
   // 獲取音頻持續時間
   Future<Duration> getAudioDuration(String audioPath) async {

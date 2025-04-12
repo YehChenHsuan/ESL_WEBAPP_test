@@ -71,6 +71,10 @@ class WebSafeAudioService {
   // 完成播放回調
   Function? _onComplete;
 
+  void setOnCompleteListener(Function? onComplete) {
+    _onComplete = onComplete;
+  }
+
   bool get isPlaying => _isPlaying;
   double get playbackRate => _playbackRate;
 
@@ -338,10 +342,6 @@ class WebSafeAudioService {
     await setPlaybackRate(1.0);
   }
 
-  // 設置播放完成回調
-  void setOnCompleteListener(Function() onComplete) {
-    _onComplete = onComplete;
-  }
 
   // 獲取音頻持續時間
   Future<Duration> getAudioDuration(String audioPath) async {

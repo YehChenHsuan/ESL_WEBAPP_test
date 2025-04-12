@@ -100,7 +100,7 @@ class ReadingControls extends StatelessWidget {
                       ? ElevatedButton.icon(
                           onPressed: onStopAutoplay,
                           icon: const Icon(Icons.stop),
-                          label: const Text('停止自動播放'),
+                          label: const Text('結束'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.red,
                             foregroundColor: Colors.white,
@@ -111,7 +111,7 @@ class ReadingControls extends StatelessWidget {
                       : ElevatedButton.icon(
                           onPressed: onStartAutoplay,
                           icon: const Icon(Icons.play_arrow),
-                          label: const Text('開始自動播放'),
+                          label: const Text('開始'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green,
                             foregroundColor: Colors.white,

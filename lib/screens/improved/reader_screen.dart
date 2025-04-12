@@ -1000,7 +1000,10 @@ class _ImprovedReaderScreenState extends State<ImprovedReaderScreen>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // 書本名稱
-            Text(widget.book.name),
+            Text(
+              widget.book.name,
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+            ),
             const SizedBox(width: 32), // 名稱和下拉選單的間距
             // 類別下拉選單
             Container(
@@ -1049,10 +1052,6 @@ class _ImprovedReaderScreenState extends State<ImprovedReaderScreen>
             // 使用 Spacer 將頁數推到中間
             const Spacer(),
             // 頁面導航 (置中)
-            Text(
-              '第 ${_currentPage + 1} 頁 / 共 ${_pages.length} 頁',
-              style: TextStyle(color: Colors.white), // 直接使用 TextStyle
-            ),
             // 使用 Spacer 將右側按鈕推到最右邊
             const Spacer(),
           ],
@@ -1066,7 +1065,7 @@ class _ImprovedReaderScreenState extends State<ImprovedReaderScreen>
               runSpacing: 4.0, // 按鈕之間的垂直間距 (如果換行)
               alignment: WrapAlignment.end, // 靠右對齊
               children: ReadingMode.values.map((mode) {
-                return ElevatedButton.icon(
+                return IconButton(
                   icon: Icon(
                     mode == ReadingMode.reading
                         ? Icons.touch_app
@@ -1075,30 +1074,19 @@ class _ImprovedReaderScreenState extends State<ImprovedReaderScreen>
                             : mode == ReadingMode.translation
                                 ? Icons.translate
                                 : Icons.play_circle_outline, // Autoplay icon
-                    size: 18, // 縮小圖標尺寸
+                    size: 22,
+                    color: _mode == mode
+                        ? Theme.of(context).colorScheme.primary
+                        : Colors.grey.shade600, // 改為淡灰色
                   ),
-                  label: Text(
-                    mode == ReadingMode.reading
-                        ? '點讀'
-                        : mode == ReadingMode.speaking
-                            ? '跟讀'
-                            : mode == ReadingMode.translation
-                                ? '翻譯'
-                                : '自動',
-                    style: TextStyle(fontSize: 12), // 縮小文字尺寸
-                  ),
+                  tooltip: mode == ReadingMode.reading
+                      ? '點讀'
+                      : mode == ReadingMode.speaking
+                          ? '跟讀'
+                          : mode == ReadingMode.translation
+                              ? '翻譯'
+                              : '自動',
                   onPressed: () => _changeReadingMode(mode),
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 8, vertical: 4), // 縮小按鈕內邊距
-                    backgroundColor: _mode == mode
-                        ? Theme.of(context).colorScheme.primaryContainer
-                        : null,
-                    foregroundColor: _mode == mode
-                        ? Theme.of(context).colorScheme.onPrimaryContainer
-                        : null,
-                    minimumSize: Size(0, 30), // 調整按鈕最小尺寸
-                  ),
                 );
               }).toList(),
             ),

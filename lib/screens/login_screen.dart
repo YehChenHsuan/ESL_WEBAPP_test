@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
               FadeTransition(
                 opacity: _fadeAnimation,
                 child: Text(
-                  '台灣兒童美語協會ESL美語教學軟體',
+                  '台灣兒童美語協會\nESL美語教學軟體',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 28.0,

@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/services.dart';
 import '../../models/vocabulary_model.dart';
 import '../../services/improved/web_safe_audio_service.dart';
+import 'package:flutter/foundation.dart';
+import '../../utils/web_speech_helper.dart';
 import '../../services/user_service.dart';
 
 class FlashcardScreen extends StatefulWidget {
@@ -256,7 +258,11 @@ class _FlashcardScreenState extends State<FlashcardScreen> with TickerProviderSt
     if (_vocabulary.isEmpty) return;
     
     final currentWord = _vocabulary[_currentIndex];
-    _audioService.playAudio(currentWord.audioFile);
+    if (kIsWeb) {
+      speakWithWebSpeech(currentWord.word);
+    } else {
+      _audioService.playAudio(currentWord.audioFile);
+    }
   }
   
   void _openFilterDialog() {

@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/services.dart';
 import '../../models/vocabulary_model.dart';
 import '../../services/improved/web_safe_audio_service.dart';
+import 'package:flutter/foundation.dart';
+import '../../utils/web_speech_helper.dart';
 
 class ListenPickGame extends StatefulWidget {
   final String bookId;
@@ -19,6 +21,23 @@ class ListenPickGame extends StatefulWidget {
 }
 
 class _ListenPickGameState extends State<ListenPickGame> with TickerProviderStateMixin {
+  // 語音語速等級
+  final List<double> _speechRates = [0.7, 1.0, 1.3, 1.6];
+  int _speechRateIndex = 1; // 預設 1.0
+  double get _speechRate => _speechRates[_speechRateIndex];
+
+  // Widget: 語速切換按鈕
+  Widget _buildSpeechRateButton() {
+    return IconButton(
+      icon: Icon(Icons.speed),
+      tooltip: '語音速度：${_speechRate.toStringAsFixed(1)}x',
+      onPressed: () {
+        setState(() {
+          _speechRateIndex = (_speechRateIndex + 1) % _speechRates.length;
+        });
+      },
+    );
+  }
   late final VocabularyService _vocabService;
   late final WebSafeAudioService _audioService;
   
@@ -223,12 +242,15 @@ class _ListenPickGameState extends State<ListenPickGame> with TickerProviderStat
       _playButtonAnimationController.reverse();
     });
     
-    _audioService.playAudio(_currentWord!.audioFile);
-    
-    // Set onComplete listener for audio playback
-    _audioService.setOnCompleteListener(() {
-      // Do nothing special when audio completes
-    });
+    if (kIsWeb) {
+      speakWithWebSpeech(_currentWord!.word, rate: _speechRate);
+    } else {
+      _audioService.playAudio(_currentWord!.audioFile);
+      // Set onComplete listener for audio playback
+      _audioService.setOnCompleteListener(() {
+        // Do nothing special when audio completes
+      });
+    }
   }
   
   // Handle option selection

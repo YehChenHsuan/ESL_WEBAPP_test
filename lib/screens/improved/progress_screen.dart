@@ -238,11 +238,17 @@ class _ProgressScreenState extends State<ProgressScreen> {
             // 書籍封面
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                '${book.imagePath}/V${book.id.substring(1)}-COVER.jpg',
-                width: 60,
-                height: 80,
-                fit: BoxFit.cover,
+              child: ClipRect(
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  widthFactor: 0.5,
+                  child: Image.asset(
+                    '${book.imagePath}/V${book.id.substring(1)}_00-00.jpg',
+                    width: 120, // 原圖寬度*2，確保右半顯示清楚
+                    height: 80,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
             const SizedBox(width: 16),

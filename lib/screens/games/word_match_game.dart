@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/foundation.dart';
+import '../../utils/web_speech_helper.dart';
 import '../../models/vocabulary_model.dart';
 import '../../services/improved/web_safe_audio_service.dart';
 
@@ -9,8 +11,8 @@ class WordMatchGame extends StatefulWidget {
   final String bookId;
   final String difficulty;
 
-  const WordMatchGame({
-    Key? key, 
+  WordMatchGame({
+    Key? key,
     required this.bookId,
     this.difficulty = 'Easy',
   }) : super(key: key);
@@ -20,6 +22,22 @@ class WordMatchGame extends StatefulWidget {
 }
 
 class _WordMatchGameState extends State<WordMatchGame> with SingleTickerProviderStateMixin {
+  static const List<double> _speechRates = [0.7, 1.0, 1.3, 1.6];
+  int _speechRateIndex = 1; // 預設 1.0
+  double get _speechRate => _speechRates[_speechRateIndex];
+
+  // Widget: 語速切換按鈕
+  Widget _buildSpeechRateButton() {
+    return IconButton(
+      icon: Icon(Icons.speed),
+      tooltip: '語音速度：${_speechRate.toStringAsFixed(1)}x',
+      onPressed: () {
+        setState(() {
+          _speechRateIndex = (_speechRateIndex + 1) % _speechRates.length;
+        });
+      },
+    );
+  }
   late final VocabularyService _vocabService;
   late final WebSafeAudioService _audioService;
   
@@ -37,6 +55,7 @@ class _WordMatchGameState extends State<WordMatchGame> with SingleTickerProvider
   bool _gameOver = false;
   bool _showFeedback = false;
   bool _isCorrectMatch = false;
+
 
   // Animation controller for card flipping and feedback
   late AnimationController _animationController;
@@ -95,6 +114,7 @@ class _WordMatchGameState extends State<WordMatchGame> with SingleTickerProvider
         
         _gameVocabulary.addAll(additionalWords);
       }
+    
       
       // Shuffle vocabulary list
       _gameVocabulary.shuffle();
@@ -149,7 +169,11 @@ class _WordMatchGameState extends State<WordMatchGame> with SingleTickerProvider
     
     // Play word audio
     final selectedVocab = _currentRoundItems.firstWhere((item) => item.word == word);
-    _audioService.playAudio(selectedVocab.audioFile);
+    if (kIsWeb) {
+      speakWithWebSpeech(selectedVocab.word, rate: _speechRate);
+    } else {
+      _audioService.playAudio(selectedVocab.audioFile);
+    }
   }
   
   // Handle image selection
@@ -258,6 +282,8 @@ class _WordMatchGameState extends State<WordMatchGame> with SingleTickerProvider
               ),
             ),
           ),
+        // 語速切換按鈕
+        _buildSpeechRateButton(),
         ],
       ),
       body: Column(

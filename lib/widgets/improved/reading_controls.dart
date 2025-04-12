@@ -48,6 +48,18 @@ class ReadingControls extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          // 頁數顯示
+          Padding(
+            padding: const EdgeInsets.only(bottom: 4),
+            child: Text(
+              '第 ${currentPage + 1} 頁 / 共 $totalPages 頁',
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+          ),
           // 縮放控制
           Row(
             children: [

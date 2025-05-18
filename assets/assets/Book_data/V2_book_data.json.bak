@@ -12856,6 +12856,21 @@
   },
   {
     "Image": "V2_28-29.jpg",
+    "Text": "Ff",
+    "Unnamed: 2": false,
+    "Category": "Sentence",
+    "X1": 1916,
+    "Y1": 402,
+    "X2": 2262,
+    "Y2": 586,
+    "中文翻譯": "ff",
+    "English_Audio_File": "en_ff.mp3",
+    "Chinese_Audio_File": "zh_ff.mp3",
+    "id": "1e918d26-41ed-4328-bf46-05f0e5828931",
+    "Page": "V2_28-29.jpg"
+  },
+  {
+    "Image": "V2_28-29.jpg",
     "Text": "face",
     "Unnamed: 2": false,
     "Category": "Sentence",

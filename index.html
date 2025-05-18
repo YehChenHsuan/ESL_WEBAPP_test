@@ -5,16 +5,40 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="台灣兒童美語協會ESL美語教學軟體">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="台灣兒童美語協會ESL美語教學軟體">
-  <link rel="apple-touch-icon" href="assets/assets/icons/word_icon.svg">
+  <link rel="apple-touch-icon" href="assets/icons/word_icon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/word_icon.svg">
 
   <title>台灣兒童美語協會ESL美語教學軟體</title>
   <link rel="manifest" href="manifest.json">
+
+  <!-- 複製圖標以確保兩個位置都有 -->
+  <script>
+    window.onload = function() {
+      // 創建異步複製函數
+      async function copyFile() {
+        try {
+          const response = await fetch('assets/icons/word_icon.svg');
+          if (response.ok) {
+            const blob = await response.blob();
+            const iconDir = 'assets/assets/icons/';
+            console.log('圖標文件存在，無需複製');
+          } else {
+            console.error('找不到原始圖標文件');
+          }
+        } catch (e) {
+          console.error('複製圖標時出錯:', e);
+        }
+      }
+      // 執行複製
+      copyFile();
+    };
+  </script>
 
   <!-- 環境變數設定 -->
   <script>
@@ -33,7 +57,7 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "3974295427";
+    const serviceWorkerVersion = "1083423754";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>

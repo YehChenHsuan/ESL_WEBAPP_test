@@ -1,0 +1,29 @@
+[
+  {
+    "word": "apple",
+    "translation": "蘋果",
+    "example": "I eat an apple every day.",
+    "exampleTranslation": "我每天吃一顆蘋果。",
+    "imageFile": "apple.jpg",
+    "audioFile": "en_apple.mp3",
+    "category": "Word"
+  },
+  {
+    "word": "run",
+    "translation": "跑步",
+    "example": "She can run fast.",
+    "exampleTranslation": "她跑得很快。",
+    "imageFile": "run.jpg",
+    "audioFile": "en_run.mp3",
+    "category": "Word"
+  },
+  {
+    "word": "school",
+    "translation": "學校",
+    "example": "We go to school in the morning.",
+    "exampleTranslation": "我們早上去學校。",
+    "imageFile": "school.jpg",
+    "audioFile": "en_school.mp3",
+    "category": "Word"
+  }
+]

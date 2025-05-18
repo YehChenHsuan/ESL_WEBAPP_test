@@ -1,0 +1,23 @@
+[
+  {
+    "word": "cat",
+    "translation": "貓",
+    "example": "The cat is sleeping.",
+    "exampleTranslation": "貓正在睡覺。",
+    "mastered": false
+  },
+  {
+    "word": "dog",
+    "translation": "狗",
+    "example": "The dog is running.",
+    "exampleTranslation": "狗正在跑步。",
+    "mastered": false
+  },
+  {
+    "word": "bird",
+    "translation": "鳥",
+    "example": "The bird is singing.",
+    "exampleTranslation": "鳥正在唱歌。",
+    "mastered": false
+  }
+]
